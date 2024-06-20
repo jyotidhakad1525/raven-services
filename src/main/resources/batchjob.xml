@@ -1,0 +1,154 @@
+<beans:beans xmlns="http://www.springframework.org/schema/batch"
+             xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/batch
+           http://www.springframework.org/schema/batch/spring-batch-3.0.xsd">
+
+    <job id="qaJob">
+        <split id="split_1" task-executor="taskExecutor" next="step_validateFromEmailStep">
+            <flow>
+                <step id="step_validateCTAStep">
+                    <tasklet ref="validateCTAStep"/>
+                </step>
+            </flow>
+            <flow>
+                <step id="step_validatePreheaderStep">
+                    <tasklet ref="validatePreheaderStep"/>
+                </step>
+            </flow>
+            <flow>
+                <step id="step_validateSubjectLineStep">
+                    <tasklet ref="validateSubjectLineStep"/>
+                </step>
+            </flow>
+            <flow>
+                <step id="step_validateImageSourceStep">
+                    <tasklet ref="validateImageSourceStep"/>
+                </step>
+            </flow>
+            <flow>
+                <step id="step_validateSocialStep">
+                    <tasklet ref="validateSocialStep"/>
+                </step>
+            </flow>
+            <flow>
+                <step id="step_validateFooterStep">
+                    <tasklet ref="validateFooterStep"/>
+                </step>
+            </flow>
+            <flow>
+                <step id="step_validateMirrorStep">
+                    <tasklet ref="validateMirrorStep"/>
+                </step>
+            </flow>
+            <flow>
+                <step id="step_validateOptoutLinkStep">
+                    <tasklet ref="validateOptoutLinkStep"/>
+                </step>
+            </flow>
+            <flow>
+                <step id="step_validateImageAltTextStep">
+                    <tasklet ref="validateImageAltTextStep"/>
+                </step>
+            </flow>
+            <flow>
+                <step id="step_validateDeliveryLinksStep">
+                    <tasklet ref="validateDeliveryLinksStep"/>
+                </step>
+            </flow>
+        </split>
+        <step id="step_validateFromEmailStep">
+            <tasklet ref="validateFromEmailStep"/>
+        </step>
+    </job>
+
+    <job id="qaJobReshare">
+        <split id="split_1_1" task-executor="taskExecutorReshare" next="step_validateFromEmailStepReshare">
+            <flow>
+                <step id="step_validateCTAStepReshare">
+                    <tasklet ref="validateCTAStepReshare"/>
+                </step>
+            </flow>
+            <flow>
+                <step id="step_validatePreheaderStepReshare">
+                    <tasklet ref="validatePreheaderStepReshare"/>
+                </step>
+            </flow>
+            <flow>
+                <step id="step_validateSubjectLineStepReshare">
+                    <tasklet ref="validateSubjectLineStepReshare"/>
+                </step>
+            </flow>
+            <flow>
+                <step id="step_validateImageSourceStepReshare">
+                    <tasklet ref="validateImageSourceStepReshare"/>
+                </step>
+            </flow>
+            <flow>
+                <step id="step_validateSocialStepReshare">
+                    <tasklet ref="validateSocialStepReshare"/>
+                </step>
+            </flow>
+            <flow>
+                <step id="step_validateFooterStepReshare">
+                    <tasklet ref="validateFooterStepReshare"/>
+                </step>
+            </flow>
+            <flow>
+                <step id="step_validateMirrorStepReshare">
+                    <tasklet ref="validateMirrorStepReshare"/>
+                </step>
+            </flow>
+            <flow>
+                <step id="step_validateOptoutLinkStepReshare">
+                    <tasklet ref="validateOptoutLinkStepReshare"/>
+                </step>
+            </flow>
+            <flow>
+                <step id="step_validateImageAltTextStepReshare">
+                    <tasklet ref="validateImageAltTextStepReshare"/>
+                </step>
+            </flow>
+            <flow>
+                <step id="step_validateDeliveryLinksStepReshare">
+                    <tasklet ref="validateDeliveryLinksStepReshare"/>
+                </step>
+            </flow>
+        </split>
+        <step id="step_validateFromEmailStepReshare">
+            <tasklet ref="validateFromEmailStepReshare"/>
+        </step>
+    </job>
+
+
+
+    <beans:bean id="validateSocialStep" class="com.adobe.core.raven.steps.ValidateSocialStep" />
+    <beans:bean id="validateFooterStep" class="com.adobe.core.raven.steps.ValidateFooterStep" />
+    <beans:bean id="validateMirrorStep" class="com.adobe.core.raven.steps.ValidateMirrorStep" />
+    <beans:bean id="validateImageAltTextStep" class="com.adobe.core.raven.steps.ValidateImageAltTextStep" />
+    <beans:bean id="validateImageSourceStep" class="com.adobe.core.raven.steps.ValidateImageSourceStep" />
+    <beans:bean id="validateCTAStep" class="com.adobe.core.raven.steps.ValidateCTAStep" />
+    <beans:bean id="validateFromEmailStep" class="com.adobe.core.raven.steps.ValidateFromEmailStep" />
+    <beans:bean id="validatePreheaderStep" class="com.adobe.core.raven.steps.ValidatePreheaderStep" />
+    <beans:bean id="validateSubjectLineStep" class="com.adobe.core.raven.steps.ValidateSubjectLineStep" />
+    <beans:bean id="validateOptoutLinkStep" class="com.adobe.core.raven.steps.ValidateOptoutLinkStep" />
+    <beans:bean id="validateDeliveryLinksStep" class="com.adobe.core.raven.steps.ValidateDeliveryLinksStep" />
+    <beans:bean id="taskExecutor" class="org.springframework.core.task.SimpleAsyncTaskExecutor" />
+
+
+
+    <beans:bean id="validateSocialStepReshare" class="com.adobe.core.raven.steps.ValidateSocialStepReshare" />
+    <beans:bean id="validateFooterStepReshare" class="com.adobe.core.raven.steps.ValidateFooterStepReshare" />
+    <beans:bean id="validateMirrorStepReshare" class="com.adobe.core.raven.steps.ValidateMirrorStepReshare" />
+    <beans:bean id="validateImageAltTextStepReshare" class="com.adobe.core.raven.steps.ValidateImageAltTextStepReshare" />
+    <beans:bean id="validateImageSourceStepReshare" class="com.adobe.core.raven.steps.ValidateImageSourceStepReshare" />
+    <beans:bean id="validateCTAStepReshare" class="com.adobe.core.raven.steps.ValidateCTAStepReshare" />
+    <beans:bean id="validateFromEmailStepReshare" class="com.adobe.core.raven.steps.ValidateFromEmailStepReshare" />
+    <beans:bean id="validatePreheaderStepReshare" class="com.adobe.core.raven.steps.ValidatePreheaderStepReshare" />
+    <beans:bean id="validateSubjectLineStepReshare" class="com.adobe.core.raven.steps.ValidateSubjectLineStepReshare" />
+    <beans:bean id="validateOptoutLinkStepReshare" class="com.adobe.core.raven.steps.ValidateOptoutLinkStepReshare" />
+    <beans:bean id="validateDeliveryLinksStepReshare" class="com.adobe.core.raven.steps.ValidateDeliveryLinksStepReshare" />
+    <beans:bean id="taskExecutorReshare" class="org.springframework.core.task.SimpleAsyncTaskExecutor" />
+</beans:beans>

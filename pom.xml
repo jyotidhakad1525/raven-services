@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.adobe.core.raven</groupId>
+  <artifactId>ravenservices</artifactId>
+  <version>1.0</version>
+
+
+    <parent>
+    <groupId>com.adobe.asr</groupId>
+    <artifactId>asr-parent</artifactId>
+    <!-- Please update your ASR libraries regularly for bug fixes, features, and security patches. -->
+    <!-- See https://git.corp.adobe.com/ASR/asr/releases for the latest ASR releases. -->
+    <version>8.110.0</version>
+    <relativePath/>
+  </parent>
+
+  <properties>
+    <java.version>11</java.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <start-class>com.adobe.core.raven.Application</start-class>
+      <maven.compiler.source>11</maven.compiler.source>
+      <maven.compiler.target>11</maven.compiler.target>
+  </properties>
+
+  <!-- Used to populate entries in TESSA 2.0 portal -->
+  <name>ravenservices</name>
+  <scm>
+    <connection>scm:git:git@git.corp.adobe.com:ACSGMSTechnology/raven-services.git</connection>
+    <url>https://git.corp.adobe.com/ACSGMSTechnology/raven-services</url>
+  </scm>
+  <dependencies>
+   <!-- <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-config</artifactId>
+      <version>3.2.5.RELEASE</version>
+    </dependency>-->
+    <dependency>
+      <groupId>com.adobe.asr</groupId>
+      <artifactId>asr-starter-springmvc</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.adobe.asr</groupId>
+      <artifactId>connector-ims</artifactId>
+    </dependency>
+
+
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger-ui</artifactId>
+      <version>${springfox.swagger.version}</version></dependency>
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger2</artifactId>
+      <version>${springfox.swagger.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.adobe.asr</groupId>
+      <artifactId>connector-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.18</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.auxilii.msgparser/msgparser -->
+    <dependency>
+      <groupId>com.auxilii.msgparser</groupId>
+      <artifactId>msgparser</artifactId>
+      <version>1.1.15</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jsoup</groupId>
+      <artifactId>jsoup</artifactId>
+      <version>1.11.3</version>
+    </dependency>
+    <!--- https://mvnrepository.com/artifact/org.springframework.batch/spring-batch-core -->
+    <dependency>
+      <groupId>org.springframework.batch</groupId>
+      <artifactId>spring-batch-core</artifactId>
+      <version>3.0.4.RELEASE</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/javax.persistence/javax.persistence-api -->
+    <dependency>
+      <groupId>javax.persistence</groupId>
+      <artifactId>javax.persistence-api</artifactId>
+      <version>2.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.batch</groupId>
+      <artifactId>spring-batch-infrastructure</artifactId>
+      <version>3.0.4.RELEASE</version>
+    </dependency>
+
+    <!-- Spring Data and MongoDB Dependencies -->
+    <!-- <dependency>
+         <groupId>org.springframework.data</groupId>
+         <artifactId>spring-data-mongodb</artifactId>
+     </dependency>
+     <dependency>
+         <groupId>org.mongodb</groupId>
+         <artifactId>mongo-java-driver</artifactId>
+         <version>3.6.0</version>
+     </dependency>-->
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.okhttp3</groupId>
+      <artifactId>okhttp</artifactId>
+      <version>4.9.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-mongodb</artifactId>
+      <version>2.5.6</version>
+    </dependency>
+
+      <dependency>
+          <groupId>com.squareup.okhttp3</groupId>
+          <artifactId>okhttp</artifactId>
+          <version>4.9.1</version>
+      </dependency>
+
+      <dependency>
+          <groupId>com.google.code.gson</groupId>
+          <artifactId>gson</artifactId>
+          <version>2.8.5</version>
+      </dependency>
+    <!-- <dependency>
+         <groupId>org.mongodb</groupId>
+         <artifactId>bson</artifactId>
+         <version>3.11.0</version>
+     </dependency>
+     <dependency>
+         <groupId>org.mongodb</groupId>
+         <artifactId>mongodb-driver</artifactId>
+         <version>3.11.0</version>
+     </dependency>
+     <dependency>
+         <groupId>org.mongodb</groupId>
+         <artifactId>mongodb-driver-core</artifactId>
+         <version>3.11.0</version>
+     </dependency>-->
+
+  </dependencies>
+  <build>
+      <resources>
+        <resource>
+          <directory>src/main/resources</directory>
+          <filtering>true</filtering>
+        </resource>
+      </resources>
+
+      <plugins>
+
+
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+        <!-- The tessa maven plugin will upload all the service dependency info to the Tessa dependency DB at snitch.corp.adobe.com for your ASSET review -->
+        <!-- To test locally use 'mvn tessa:list-local' In this case - no http requests are sent to Tessa, hence no API key is needed-->
+        <!-- When creating a release build, set the TESSA2_API_KEY env var and build 'mvn tessa:update' to trigger the plugin -->
+        <!-- Refer https://git.corp.adobe.com/SharedCloud/tessa-maven-plugin for more details -->
+        <plugin>
+          <groupId>com.adobe.sharedcloud</groupId>
+          <artifactId>tessa-maven-plugin</artifactId>
+          <configuration>
+            <host>snitch.corp.adobe.com</host>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.1.0</version>
+        </plugin>
+        <!-- The git commit ID plugin. This injects the commit ID for the /version api. Requires maven 3.1.1 or later -->
+        <plugin>
+          <groupId>pl.project13.maven</groupId>
+          <artifactId>git-commit-id-plugin</artifactId>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <encoding>utf-8</encoding>
+          </configuration>
+        </plugin>
+      </plugins>
+
+
+  </build>
+
+</project>
